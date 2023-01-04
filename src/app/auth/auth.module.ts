@@ -6,6 +6,7 @@ import {RegisterComponent} from './components/register/register.component'
 import {AuthRoutingModule} from './auth-routing.module'
 import {StoreModule} from '@ngrx/store'
 import {reducer} from './store/reducers'
+import {AuthService} from './services/auth.service'
 
 @NgModule({
   imports: [
@@ -16,5 +17,6 @@ import {reducer} from './store/reducers'
   ],
   declarations: [RegisterComponent],
   exports: [RegisterComponent],
+  providers: [AuthService],
 })
 export class AuthModule {}

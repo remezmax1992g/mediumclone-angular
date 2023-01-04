@@ -5,6 +5,7 @@ import {AuthModule} from './auth/auth.module'
 import {AppRoutingModule} from './app-routing.module'
 import {StoreModule} from '@ngrx/store'
 import {StoreDevtoolsModule} from '@ngrx/store-devtools'
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools'
     AuthModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
+    HttpClientModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: !isDevMode(),
