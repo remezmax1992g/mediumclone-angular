@@ -5,7 +5,7 @@ import {registerAction} from '../../store/actions/register.action'
 import {Observable} from 'rxjs'
 import {isSubmittingSelector} from '../../store/selector'
 import {AuthService} from '../../services/auth.service'
-import {CurrentUserInterface} from '../../../shared/types/currentUser.interface'
+import {RegisterRequestInterface} from '../../types/registerRequest.interface'
 
 @Component({
   selector: 'app-register',
@@ -32,9 +32,7 @@ export class RegisterComponent implements OnInit {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
   }
   onSubmit(): void {
-    this.store.dispatch(registerAction(this.form.value))
-    this.authService
-      .register(this.form.value)
-      .subscribe((currentUser: CurrentUserInterface) => console.log(currentUser))
+    const request: RegisterRequestInterface = {user: this.form.value}
+    this.store.dispatch(registerAction({request}))
   }
 }
